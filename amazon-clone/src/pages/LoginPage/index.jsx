@@ -1,23 +1,23 @@
 import React from "react";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
 // import Divider from "@mui/material";
 // import Typography from "@mui/material";
-import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Unstable_Grid2";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import Divider from "@mui/material/Divider";
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 // import TextField from "@mui/material/TextField";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
-import { styled } from "@mui/material/styles";
 
 import { amber } from "@mui/material/colors";
 import AmazonLogo from "../../assets/images/amazon.png"
 
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 // import theme from "../../../theme";
 
 const LoginPage = () => {
@@ -34,6 +34,8 @@ const LoginPage = () => {
     // console.log("handleyourcreat");
     navigate("/signup");
   };
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
   return (
     <Grid className="main-conatiner" container spacing={2}>
     
@@ -50,12 +52,45 @@ const LoginPage = () => {
                   Sign in or create account
                 </Typography>
                 <Typography variant="body1" sx={{ paddingLeft: "20px", paddingTop:"10px", fontSize:"14px"}}>
-                  <strong>Enter Mobile Phone Number or Email</strong>
+                  <strong>Enter Mobile Number or Email</strong>
                 </Typography>
+                <TextField
+          error={false}
+          id="outlined-error-helper-text"
+          label="Error"
+          helperText="Incorrect entry."
+          variant="outlined"
+          size="small"
+          margin="dense"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="start">
+              <EmailOutlinedIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+      <TextField
+            id="outlined-adornment-password"
+            type={showPassword ? 'text' : 'password'}
+            variant="outlined"
+            inputProps={{
+              endAdornment:(
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+           
+            label="Password"
+          />
 
-                <Box>
-                  <input className="input" />
-                </Box>
                 <Box>
                   <Button
                     variant="body1"
