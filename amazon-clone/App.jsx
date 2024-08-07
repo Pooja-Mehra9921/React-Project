@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import SignupPage from "./src/pages/SignupPage/SignupPage";
 import { Route, Routes } from "react-router-dom";
-import FooterBasic from "./src/components/FooterBasic/FooterBasic";
+import FooterBasic from "./src/components/FooterBasic";
 import { ProductpageShimmer } from "./src/components/Shimmer";
 import LoginPage from "./src/pages/LoginPage";
 const Homepage = lazy(()=> import("./src/pages/Homepage"));
