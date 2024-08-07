@@ -44,15 +44,32 @@ const handleLogin =()=>{
   setisSubmit(true);
 };
 
-const emailErr =  isSubmit && loginData?.email.length !==5;
-const passErr =  isSubmit && loginData?.password.length !==6;
+
+const handleChange = (type) => (event) =>{
+  // setisSubmit(false);
+console.log("type", type);
+  // if(type=="email"){
+  //   setloginData({...loginData, email: event.target.value})
+  // }
+  // else if(type=="password"){
+  //   setloginData({...loginData, password: event.target.value})
+
+  // }
+  setloginData({...loginData, [type]: event.target.value})
+
+}
+const emailErr =  isSubmit && loginData?.email.length <=5;
+const passErr =  isSubmit && loginData?.password.length <=6;
 
 console.log("login data", loginData);
+
+
+
+
+
+
+
   return (
-
-
-
-    
     <Grid container className="main-conatiner" spacing={2}>
       <Grid style={{ display:"flex", alignItem:"center", justifyContent:"center"}} xs={6} md={8}>
           
@@ -83,7 +100,7 @@ console.log("login data", loginData);
                </InputAdornment>
                ),
                 }}
-
+onChange={handleChange("email")}
                 error={emailErr}
                 helperText= {emailErr && "please enter valid email."}
               />
@@ -113,7 +130,7 @@ console.log("login data", loginData);
               </InputAdornment>
             ),
           }}
-
+          onChange={handleChange("password")}
           error={passErr}
           helperText= {passErr && "please enter valid password."}
         />
