@@ -1,44 +1,59 @@
-import React from "react";
-import { Box, Divider, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
-// import Divider from "@mui/material";
-// import Typography from "@mui/material";
+import React, { useState } from "react";
+import Typography from "@mui/material/Typography";
+
+import Box from "@mui/material/Box"
+import Divider from "@mui/material/Divider"
+import  IconButton from "@mui/material/IconButton"
+import  InputAdornment from "@mui/material/InputAdornment"
+import  TextField from "@mui/material/TextField"
 import Grid from "@mui/material/Unstable_Grid2";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import Divider from "@mui/material/Divider";
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-// import TextField from "@mui/material/TextField";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-
-
 import { amber } from "@mui/material/colors";
 import AmazonLogo from "../../assets/images/amazon.png"
-
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-// import theme from "../../../theme";
+import { Visibility,  VisibilityOffOutlined } from "@mui/icons-material";
+import { Chip } from "@mui/material";
+
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  // const DemoPaper = styled(Paper)(({ theme }) => ({
-  //   width: 380,
-  //   height: 340,
 
-  //   padding: theme.spacing(2),
-  //   ...theme.typography.body2,
-  //   textAlign: "center",
-  // }));
   const HandleYourCreateAccount = () => {
     // console.log("handleyourcreat");
     navigate("/signup");
   };
+
+
   const [showPassword, setShowPassword] = React.useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const [loginData, setloginData] = useState({email:"", password:""});
+  const [isSubmit, setisSubmit] = useState(false)
+
+const handlepassword =()=>{
+console.log("password clicked");
+setShowPassword(!showPassword);
+};
+
+const handleLogin =()=>{
+  console.log("login button");
+  setisSubmit(true);
+};
+
+const emailErr =  isSubmit && loginData?.email.length !==5;
+const passErr =  isSubmit && loginData?.password.length !==6;
+
+console.log("login data", loginData);
   return (
-    <Grid className="main-conatiner" container spacing={2}>
+
+
+
     
+    <Grid container className="main-conatiner" spacing={2}>
       <Grid style={{ display:"flex", alignItem:"center", justifyContent:"center"}} xs={6} md={8}>
           
           <Box style={{ width:"420px"}}>
@@ -48,49 +63,80 @@ const LoginPage = () => {
             <Box>
               <Paper elevation={2} sx={{ height: "350px", width: "420px" }}>
                 <Typography sx={{ paddingLeft: "20px", paddingTop:"20px" }} variant="body1" style={{fontSize:"20px"}}>
-                  {" "}
+                 
                   Sign in or create account
                 </Typography>
-                <Typography variant="body1" sx={{ paddingLeft: "20px", paddingTop:"10px", fontSize:"14px"}}>
-                  <strong>Enter Mobile Number or Email</strong>
-                </Typography>
-                <TextField
-          error={false}
+
+
+                <Typography variant="body1">Enter Email</Typography>
+                <TextField style={{width:"90%", marginLeft:"20px", marginRight:"20px"}}
+                 
+                 id="outlined-error-helper-text"
+                  label="Email"
+                 variant="outlined"
+                  size="small"
+                 margin="normal"
+                 InputProps={{
+                 endAdornment: (
+               <InputAdornment position="start">
+               <EmailOutlinedIcon  style={{color: emailErr ? "red" : "grey" }}/>
+               </InputAdornment>
+               ),
+                }}
+
+                error={emailErr}
+                helperText= {emailErr && "please enter valid email."}
+              />
+
+          <TextField style={{width:"90%", marginLeft:"20px", marginRight:"20px"}}
+          
           id="outlined-error-helper-text"
-          label="Error"
-          helperText="Incorrect entry."
+          label="Password"
+          type={showPassword ? "text" :  "password"}
+        
           variant="outlined"
+          fullWidth
           size="small"
           margin="dense"
           InputProps={{
             endAdornment: (
               <InputAdornment position="start">
-              <EmailOutlinedIcon />
+                <IconButton onClick={handlepassword}>
+                  {showPassword
+                    ?
+                    <Visibility style={{color: passErr ? "red" : "grey" }}/>
+                    : 
+                     <VisibilityOffOutlined style={{color: passErr ? "red" : "grey" }} />
+                  }
+                </IconButton>
+           
               </InputAdornment>
             ),
           }}
-        />
-      <TextField
-            id="outlined-adornment-password"
-            type={showPassword ? 'text' : 'password'}
-            variant="outlined"
-            inputProps={{
-              endAdornment:(
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-           
-            label="Password"
-          />
 
+          error={passErr}
+          helperText= {passErr && "please enter valid password."}
+        />
+
+
+<Chip style={{width:"90%", margin:"10px 20px", background: amber[300]}} label="Continue" variant="contained" onClick={handleLogin} /> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* 
                 <Box>
                   <Button
                     variant="body1"
@@ -105,7 +151,7 @@ const LoginPage = () => {
                     {" "}
                     Continue
                   </Button>
-                </Box>
+                </Box> */}
                 <Typography style={{ lineHeight:"10px"}}  component="span" sx={{ margin: "0 0 0 20px", fontSize:"14px", textAlign:"justify" }}>
                   By continuing, you agree to Amazon's{" "}
                   <Link href="#" variant="condition">conditions of
