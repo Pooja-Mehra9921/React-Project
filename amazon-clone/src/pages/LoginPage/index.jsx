@@ -97,14 +97,14 @@ console.log("login data", loginData);
             <img src={AmazonLogo} alt="AmazonLogo" height={40} width={"120"} />
           </Box>
             <Box>
-              <Paper elevation={2} sx={{ height: "350px", width: "420px" }}>
+              <Paper elevation={2} sx={{ height: "450px", width: "420px" }}>
                 <Typography sx={{ paddingLeft: "20px", paddingTop:"20px" }} variant="body1" style={{fontSize:"20px"}}>
                  
                   Sign in or create account
                 </Typography>
 
 
-                <Typography variant="body1">Enter Email</Typography>
+                <Typography variant="body1" style={{marginLeft:"20px", marginBottom:"-12px", marginTop:"20px", fontSize:"14px"}}><strong>Enter Email</strong></Typography>
                 <TextField style={{width:"90%", marginLeft:"20px", marginRight:"20px"}}
                  
                  id="outlined-error-helper-text"
@@ -123,6 +123,8 @@ onChange={handleChange("email")}
                 error={emailErr}
                 helperText= {emailErr && "please enter valid email."}
               />
+
+<Typography variant="body1" style={{marginLeft:"20px", marginBottom:"-2px", marginTop:"5px", fontSize:"14px"}}><strong>Enter Password</strong></Typography>
 
           <TextField style={{width:"90%", marginLeft:"20px", marginRight:"20px"}}
           
@@ -169,35 +171,6 @@ disabled={loginData.email.length <6 || loginData.password.length<7}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* 
-                <Box>
-                  <Button
-                    variant="body1"
-                    sx={{
-                      background: amber[300],
-                      margin: "20px 0 10px 20px",
-                      width: "380px",
-                      color: "black",
-                      borderRadius:"50px"
-                    }}
-                  >
-                    {" "}
-                    Continue
-                  </Button>
-                </Box> */}
                 <Typography style={{ lineHeight:"10px"}}  component="span" sx={{ margin: "0 0 0 20px", fontSize:"14px", textAlign:"justify" }}>
                   By continuing, you agree to Amazon's{" "}
                   <Link href="#" variant="condition">conditions of
@@ -214,13 +187,13 @@ disabled={loginData.email.length <6 || loginData.password.length<7}
                   component="span"
                   sx={{ display: "flex", margin: "auto" }}
                 >
-                  <ArrowRightIcon style={{paddingLeft:"10px", marginTop:"10px"}} />
-                  <Link href="#" variant="Need help" style={{marginTop:"10px"}}>
+                  <ArrowRightIcon style={{paddingLeft:"10px", marginTop:"10px", fontSize:"20px"}} />
+                  <Link href="#" variant="Need help" style={{marginTop:"10px", fontSize:"14px"}}>
                     {"Need help?"}
                   </Link>
                 </Typography>
                 <Divider sx={{ margin: "15px 0 0 20px", width: "380px" }} />
-                <Box className="work">Buying for work?</Box>
+               <Typography style={{marginLeft:"20px", marginTop:"10px"}} variant="body1"><strong>Buying for work?</strong></Typography>
                 <Box className="shop-link">
                   <Link href="#" variant="privacy">
                     {"Shop on Amazon Business"}
@@ -231,15 +204,15 @@ disabled={loginData.email.length <6 || loginData.password.length<7}
               </Paper>
             </Box>
             <Divider
-              sx={{ margin: "10px 0 0 15px", fontSize: "15px", width: "380px" }}
+              sx={{ fontSize: "15px", width: "420px", marginTop:"20px", marginBottom:"20px"}}
             >
               New to Amazon?
             </Divider>
             <Button
               variant="text"
               sx={{
-                margin: "20px 0 0 15px",
-                width: "380px",
+                margin: "auto",
+                width: "420px",
                 background: "none",
                 // background: amber[400],
                 color: "black",
