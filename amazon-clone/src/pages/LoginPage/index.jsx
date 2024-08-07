@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
-
+import axios from "axios";
 import Box from "@mui/material/Box"
 import Divider from "@mui/material/Divider"
 import  IconButton from "@mui/material/IconButton"
@@ -15,10 +15,12 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { amber } from "@mui/material/colors";
 import AmazonLogo from "../../assets/images/amazon.png"
-import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { Visibility,  VisibilityOffOutlined } from "@mui/icons-material";
-import { Chip } from "@mui/material";
+import { Chip, Tooltip } from "@mui/material";
+import {API} from "../../configs/api"
+import Tooltip from "@mui/material/Tooltip";
+import "./style.css";
 
 
 const LoginPage = () => {
@@ -39,9 +41,26 @@ console.log("password clicked");
 setShowPassword(!showPassword);
 };
 
-const handleLogin =()=>{
-  console.log("login button");
+const handleLogin =async()=>{
+  try{
+
+  if(!loginData.email.length <6 || !loginData.password.length<7) return;
   setisSubmit(true);
+
+  const resp = await axios.post(API.LOGIN_API,{
+
+      username: 'emilys',
+      password: 'emilyspass',
+      expiresInMins: 30, // optional, defaults to 60
+
+ });
+
+  console.log("--response", resp);
+}
+catch(err)
+  {
+console.log("---error in login process", err);
+}
 };
 
 
@@ -135,8 +154,18 @@ onChange={handleChange("email")}
           helperText= {passErr && "please enter valid password."}
         />
 
-
-<Chip style={{width:"90%", margin:"10px 20px", background: amber[300]}} label="Continue" variant="contained" onClick={handleLogin} /> 
+<Tooltip title={
+  (loginData.email.length <6 && "please enter valid email") || (loginData.password.length <7 && "please enter valid password")
+  } >
+  <span>
+<Chip style={{width:"90%", margin:"10px 20px", background: amber[300]}} 
+label="Continue" 
+variant="contained" 
+onClick={handleLogin} 
+disabled={loginData.email.length <6 || loginData.password.length<7}
+/> 
+</span>
+</Tooltip>
 
 
 
