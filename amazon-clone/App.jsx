@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import SignupPage from "./src/pages/SignupPage/SignupPage";
+import SignupPage from "./src/pages/SignupPage";
 import { Route, Routes } from "react-router-dom";
 import FooterBasic from "./src/components/FooterBasic";
 import { ProductpageShimmer } from "./src/components/Shimmer";
@@ -25,7 +25,7 @@ const App = () => {
       </Routes>
       {/* <Login_page /> */}
       {/* <SignupPage /> */}
-      <FooterBasic />
+     
     </>
   );
 };

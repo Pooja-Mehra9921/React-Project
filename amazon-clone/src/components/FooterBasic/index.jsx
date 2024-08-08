@@ -9,11 +9,15 @@ const FooterBasic = () => {
 <>
     <Box className="main-container">
       <Box className="items-container">
-<Typography className="footer-menu" variant="body1">Conditions of Use</Typography>
-<Typography className="footer-menu" variant="body1">Police Notice</Typography>
-<Typography className="footer-menu" variant="body1">Help</Typography>
-<Box>
-  <Typography variant="body1">
+        <Box className="menu-container">
+       <Link variant="body1" className="footer-menu" href="/#">Conditions of Use</Link>
+       <Link variant="body1" className="footer-menu" href="/#">Police Notice</Link>
+       <Link variant="body1" className="footer-menu" href="/#">Help</Link>
+
+        </Box>
+
+<Box style={{ display:"flex", alignItems:"center", justifyContent:"center", fontSize:"12px"}}>
+  <Typography className="footer-menu" variant="body1">
   © 1996-2024, Amazon.com, Inc. or its affiliates
   </Typography>
 </Box>

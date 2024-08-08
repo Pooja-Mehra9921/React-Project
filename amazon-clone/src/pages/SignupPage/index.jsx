@@ -1,11 +1,12 @@
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-// import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Divider from "@mui/material/Divider";
-// import "./SignupPage.css";
-// import theme from "../../../theme";
+import "./style.css";
+import FooterBasic from "../../components/FooterBasic";
+
+
 const SignupPage = () => {
   const [show, setShow] = useState(false);
   const [errorShow, setErrorShow] = useState(false);
@@ -52,13 +53,24 @@ const SignupPage = () => {
   console.log("emailOrNumber", emailOrNumber);
   console.log("inputTypajdgsjhdgse", show);
   console.log("name", name, name.length);
+
+
   return (
-    <Box>
-      <Box sx={{ margin: "70px 0 0 600px" }}>
+    <>
+<Box className="main-container" style={{backgroundColor:"blue"}}>
+<Box className="content-container">
+ <Paper elevation={2} style={{ height: "480px", width: "320px" }}>hello</Paper>
+</Box>
+</Box>
+
+
+
+    <Box style={{backgroundColor:"black", margin:520}}>
+      <Box style={{ width:"100%", height:"40vh"}} >
         <Typography variant="h5" sx={{ margin: "-30px 0 0 0" }}>
           Welcome
         </Typography>
-        <Paper elevation={2} sx={{ height: "480px", width: "320px" }}>
+        <Paper elevation={2} style={{ height: "480px", width: "320px" }}>
           <Typography
             variant="h1"
             sx={{ fontSize: "15px", margin: "0px 0 10px 20px" }}
@@ -205,6 +217,8 @@ const SignupPage = () => {
         </Paper>
       </Box>
     </Box>
+   
+    </>
   );
 };
 export default SignupPage;
