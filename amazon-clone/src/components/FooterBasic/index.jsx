@@ -7,7 +7,7 @@ import "./style.css";
 const FooterBasic = () => {
   return (
 <>
-    <Box className="main-container">
+    <Box className="basic-main-container">
       <Box className="items-container">
         <Box className="menu-container">
        <Link variant="body1" className="footer-menu" href="/#">Conditions of Use</Link>

@@ -3,13 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
-.main-container{
-    height: 55vh;
+.footer-main-container{
+    height: 31vh !important;
     width: 100%;
     background-color: #232f3e;
     display: flex;
     justify-content: center;
 align-items: center;
+padding: 10px;
 
 }
 
