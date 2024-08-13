@@ -20,6 +20,7 @@ import { Visibility,  VisibilityOffOutlined } from "@mui/icons-material";
 import { Chip, Tooltip } from "@mui/material";
 import {API} from "../../configs/api"
 import Tooltip from "@mui/material/Tooltip";
+import FooterBasic from "../../components/FooterBasic"
 import "./style.css";
 
 
@@ -89,6 +90,7 @@ console.log("login data", loginData);
 
 
   return (
+    <>
     <Grid container className="main-conatiner" spacing={2}>
       <Grid style={{ display:"flex", alignItem:"center", justifyContent:"center"}} xs={6} md={8}>
           
@@ -227,6 +229,8 @@ disabled={loginData.email.length <6 || loginData.password.length<7}
         
       </Grid>
     </Grid>
+    <FooterBasic/>
+    </>
   );
 };
 export default LoginPage;
