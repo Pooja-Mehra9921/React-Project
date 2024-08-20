@@ -5,16 +5,13 @@ import { Visibility, VisibilityOffOutlined } from "@mui/icons-material";
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { useNavigate } from "react-router-dom";
 import { amber } from "@mui/material/colors";
+import FooterBasic from "../../components/FooterBasic";
+import Homepage from "../Homepage";
 
 const SignupPage =()=>{
 
 
   const navigate = useNavigate();
-
-  const HandleYourCreateAccount = () => {
-    // console.log("handleyourcreat");
-    navigate("/signup");
-  };
 
 
   const [showPassword, setShowPassword] = React.useState(false);
@@ -29,7 +26,9 @@ setShowPassword(!showPassword);
 const handleLogin =async()=>{
   try{
 
-  if(!loginData.email.length <6 || !loginData.password.length<7) return;
+  if(!loginData.email.length <6 || !loginData.password.length<7) 
+    
+    return;
   setisSubmit(true);
 
   const resp = await axios.post(API.LOGIN_API,{
@@ -186,6 +185,8 @@ disabled={loginData.email.length <6 || loginData.password.length<7}
 </Tooltip>
       </Paper>
     </Box>
+
+    <FooterBasic/>
     </>
   )
 }
