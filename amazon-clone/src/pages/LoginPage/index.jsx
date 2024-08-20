@@ -106,57 +106,57 @@ console.log("login data", loginData);
                 </Typography>
 
 
-                <Typography variant="body1" style={{marginLeft:"20px", marginBottom:"-12px", marginTop:"20px", fontSize:"14px"}}><strong>Enter Email</strong></Typography>
-                <TextField style={{width:"90%", marginLeft:"20px", marginRight:"20px"}}
-                 
-                 id="outlined-error-helper-text"
-                  label="Email"
-                 variant="outlined"
-                  size="small"
-                 margin="normal"
-                 InputProps={{
-                 endAdornment: (
-               <InputAdornment position="start">
-               <EmailOutlinedIcon  style={{color: emailErr ? "red" : "grey" }}/>
-               </InputAdornment>
-               ),
-                }}
-onChange={handleChange("email")}
-                error={emailErr}
-                helperText= {emailErr && "please enter valid email."}
-              />
+                  <Typography variant="body1" style={{marginLeft:"20px", marginBottom:"-12px", marginTop:"20px", fontSize:"14px"}}><strong>Enter Email</strong></Typography>
+                  <TextField style={{width:"90%", marginLeft:"20px", marginRight:"20px"}}
+                  
+                  id="outlined-error-helper-text"
+                    label="Email"
+                  variant="outlined"
+                    size="small"
+                  margin="normal"
+                  InputProps={{
+                  endAdornment: (
+                <InputAdornment position="start">
+                <EmailOutlinedIcon  style={{color: emailErr ? "red" : "grey" }}/>
+                </InputAdornment>
+                ),
+                  }}
+  onChange={handleChange("email")}
+                  error={emailErr}
+                  helperText= {emailErr && "please enter valid email."}
+                />
 
-<Typography variant="body1" style={{marginLeft:"20px", marginBottom:"-2px", marginTop:"5px", fontSize:"14px"}}><strong>Enter Password</strong></Typography>
+  <Typography variant="body1" style={{marginLeft:"20px", marginBottom:"-2px", marginTop:"5px", fontSize:"14px"}}><strong>Enter Password</strong></Typography>
 
-          <TextField style={{width:"90%", marginLeft:"20px", marginRight:"20px"}}
+            <TextField style={{width:"90%", marginLeft:"20px", marginRight:"20px"}}
+            
+            id="outlined-error-helper-text"
+            label="Password"
+            type={showPassword ? "text" :  "password"}
           
-          id="outlined-error-helper-text"
-          label="Password"
-          type={showPassword ? "text" :  "password"}
-        
-          variant="outlined"
-          fullWidth
-          size="small"
-          margin="dense"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="start">
-                <IconButton onClick={handlepassword}>
-                  {showPassword
-                    ?
-                    <Visibility style={{color: passErr ? "red" : "grey" }}/>
-                    : 
-                     <VisibilityOffOutlined style={{color: passErr ? "red" : "grey" }} />
-                  }
-                </IconButton>
-           
-              </InputAdornment>
-            ),
-          }}
-          onChange={handleChange("password")}
-          error={passErr}
-          helperText= {passErr && "please enter valid password."}
-        />
+            variant="outlined"
+            fullWidth
+            size="small"
+            margin="dense"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="start">
+                  <IconButton onClick={handlepassword}>
+                    {showPassword
+                      ?
+                      <Visibility style={{color: passErr ? "red" : "grey" }}/>
+                      : 
+                      <VisibilityOffOutlined style={{color: passErr ? "red" : "grey" }} />
+                    }
+                  </IconButton>
+            
+                </InputAdornment>
+              ),
+            }}
+            onChange={handleChange("password")}
+            error={passErr}
+            helperText= {passErr && "please enter valid password."}
+          />
 
 <Tooltip title={
   (loginData.email.length <6 && "please enter valid email") || (loginData.password.length <7 && "please enter valid password")
