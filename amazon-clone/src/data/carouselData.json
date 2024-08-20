@@ -1,0 +1,32 @@
+{
+    "sliders":[
+        {
+            "alt": "carousel images",
+            "image":"../../assets/images/carousel-images/carousel-image1.jpg"
+        },
+        {
+            "alt": "carousel images",
+            "image":"../../assets/images/carousel-images/carousel-image2.jpg"
+        },
+        {
+            "alt": "carousel images",
+            "image":"../../assets/images/carousel-images/carousel-image3.jpg"
+        },
+        {
+            "alt": "carousel images",
+            "image":"../../assets/images/carousel-images/carousel-image4.jpg"
+        },
+        {
+            "alt": "carousel images",
+            "image":"../../assets/images/carousel-images/carousel-image5.jpg"
+        },
+        {
+            "alt": "carousel images",
+            "image":"../../assets/images/carousel-images/carousel-image6.jpg"
+        },
+        {
+            "alt": "carousel images",
+            "image":"../../assets/images/carousel-images/carousel-image7.jpg"
+        }
+    ]
+}
