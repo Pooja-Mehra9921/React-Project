@@ -1,0 +1,26 @@
+.suggestion-main-container{
+    height: 320px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggestion-container{
+    height: 300px;
+    width: 95%;
+    background-color: white;
+   
+}
+
+.images-section{
+    
+    display: flex;
+    overflow-y: hidden;
+    margin: auto 20px ;
+}
+.product-images{
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+}

@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import "./style.css"
 import FooterBasic from "../../components/FooterBasic";
 import Banner from "../../components/Banner";
+import ProductSuggestions from "../../components/ProductSuggestions";
 
 const Homepage=()=>{
 return(
@@ -13,6 +14,7 @@ return(
     <Header/>
     <SubHeader/>
     <Banner/>
+    <ProductSuggestions/>
     <Footer/>
     
     <FooterBasic/>
