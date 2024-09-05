@@ -4,6 +4,7 @@ import "./style.css"
 import { Typography } from "@mui/material";
 import dummy_image from "../../assets/images/DummyProduct.png"
 
+
 const ProductSuggestions =()=>{
     return(
         <>
